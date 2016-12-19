@@ -7,7 +7,7 @@ class WelcomePanel extends JPanel {
 	private JLabel message;
 
 	public WelcomePanel() {
-		message = new JLabel("¹ÎÇõÀÌÀÇ ÇÇÀÚ°¡°Ô¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´ç¤¾¤¾¤¾");		//¶óº§À» »ı¼º ¹× ÃÊ±âÈ­
-		add(message);													//ÆĞ³Î¿¡ ¶óº§À» µî·Ï
+		message = new JLabel("ë¯¼í˜ì´ì˜ í”¼ìê°€ê²Œì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¹ã…ã…ã…");		
+		add(message);													
 	}
 }
