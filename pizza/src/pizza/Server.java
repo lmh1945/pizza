@@ -33,105 +33,105 @@ public class Server extends JFrame implements ActionListener {
 	MaintainBills bills;
 	
 	public Server() {
-		setBounds(300, 200, 600, 650);						//ÇÁ·¹ÀÓÀÇ Å©±â ¹× À§Ä¡ ÁöÁ¤
-		setTitle("Employee");								//ÇÁ·¹ÀÓÀÇ Á¦¸ñ ÁöÁ¤
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//´İ±â¹öÆ°À» ´­·¶À»¶§ Á¾·á
+		setBounds(300, 200, 600, 650);						
+		setTitle("Employee");								
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		
 
-		textArea = new JTextArea(30, 42);					//textArea»ı¼º ¹× Å©±â ÁöÁ¤
-		textField = new JTextField(30);						//textField»ı¼º ¹× Å©±â ÁöÁ¤
-		textField.addActionListener(this);					//ÀÌº¥Æ®Ã³¸® µî·Ï
+		textArea = new JTextArea(30, 42);					
+		textField = new JTextField(30);						
+		textField.addActionListener(this);					
 		
-		//¹öÆ° µî·Ï ¹× ÀÌº¥Æ® Ã³¸® µî·Ï
-		input = new JButton("ÀÔ·Â");							
+		
+		input = new JButton("ì…ë ¥");							
 		input.addActionListener(this);						
-		order = new JButton("ÁÖ¹®");							
+		order = new JButton("ì£¼ë¬¸");							
 		order.addActionListener(this);						
 		
-		//ÆĞ³Î µî·Ï
+		
 		panel = new JPanel();							
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 		
-		panel1.add(new JScrollPane(textArea));			//panel1¿¡ JScrollPaneÀ» textArea¿¡ µî·Ï
-		panel2.add(textField);							//panel2¿¡ textFieldµî·Ï
-		panel2.add(input);								//panel2¿¡ ¹öÆ°µî·Ï
+		panel1.add(new JScrollPane(textArea));			
+		panel2.add(textField);							
+		panel2.add(input);								
 		panel2.add(order);
-		add(panel);										//ÇÁ·¹ÀÓ¿¡ ÆĞ³Îµî·Ï
+		add(panel);										
 
-		panel = new JPanel(new GridLayout(1, 1));		//GridLayoutÀ¸·Î ÆĞ³ÎÀ» »ı¼º
+		panel = new JPanel(new GridLayout(1, 1));		
 
-		panel.add(panel1);								//¸¸µé¾îÁø ÆĞ³Î¿¡ panel1, panel2¸¦ µî·Ï
+		panel.add(panel1);								
 		panel.add(panel2);
-		setLayout(new BorderLayout());					//setLayoutÀ¸·Î ¹èÄ¡¸¦ BorderLayoutÀ¸·Î °áÁ¤
+		setLayout(new BorderLayout());					
 
-		add(panel1, BorderLayout.NORTH);				//BorderLayoutÀ¸·Î °¢ ÆĞ³ÎÀÇ À§Ä¡¸¦ Àâ¾ÆÁÜ
+		add(panel1, BorderLayout.NORTH);				
 		add(panel2, BorderLayout.SOUTH);
 		
 		bills = MaintainBills.getInstance();
 		bills.setServer(this);
 		
-		setResizable(false);							//ÇÁ·¹ÀÓ ÃÖ´ëÈ­,ÃÖ¼ÒÈ­ false
-		setVisible(true);								//ÇÁ·¹ÀÓÀ» ¶ç¾îÁÜ
+		setResizable(false);							
+		setVisible(true);								
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {		//¹öÆ°À» ´­·¶À»¶§ ¹ß»ıÇÏ´Â ÀÌº¥Æ®Ã³¸®
+	public void actionPerformed(ActionEvent e) {		
 		String s;
 		
-		s = "Á÷¿ø : " + textField.getText();
-		textArea.append(s + "\n");						//º¯¼ö s¿¡ ´ã±ä ³»¿ëÀ» textArea¿¡ Ãâ·Â
-		out.println(s);									//Å¬¶óÀÌ¾ğÆ®¿¡°Ôµµ º¸³»ÁÜ
-		textField.setText("");							//Ãâ·ÂÀÌ ³¡ÀÌ³µÀ¸¸é ÃÊ±âÈ­
+		s = "ì§ì› : " + textField.getText();
+		textArea.append(s + "\n");						
+		out.println(s);									
+		textField.setText("");							
 		
-		if (e.getSource() == order) {					//¸¸¾à ÁÖ¹®¹öÆ°À» ´©¸£¸é
-			String ss = "ÁÖ¹®ÁßÀÔ´Ï´Ù.";					//¸Ş½ÃÁö¸¦ ´ãÀ» º¯¼ö ss
-			textArea.append(ss + "\n");					//ss¿¡ ´ã±ä ¸Ş½ÃÁö°¡ textArea¿¡ Ãâ·Â
-			out.println(ss);							//Å¬¶óÀÌ¾ğÆ®·Î º¸³»ÁÖ±â À§ÇØ 
+		if (e.getSource() == order) {					
+			String ss = "ì£¼ë¬¸ì¤‘ì…ë‹ˆë‹¤.";					
+			textArea.append(ss + "\n");					
+			out.println(ss);							
 			
-			new Pizza();								//ÁÖ¹®À» ÇÒ ¼ö ÀÖµµ·Ï Pizza ÇÁ·¹ÀÓÀ» ¶ç¾îÁÜ	
+			new Pizza();								
 		}
 	}
 	
 	public void serverStart() throws IOException {
 		
-		System.out.println("ÁÖ¹® ½ÃÀÛ");
+		System.out.println("ì£¼ë¬¸ ì‹œì‘");
 		
 		try {
-			// ¼­¹ö¼ÒÄÏÀ» »ı¼ºÇÏ°í 9100¹ø Æ÷Æ®¿Í °áÇÕ(bind) ½ÃÅ²´Ù.
+			
 			serverSocket = new ServerSocket(9100);
 		} catch (IOException e) {
-			System.out.println("´ÙÀ½ÀÇ Æ÷Æ® ¹øÈ£¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù. : 9100");
+			System.out.println("ë‹¤ìŒì˜ í¬íŠ¸ ë²ˆí˜¸ì— ì—°ê²°í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. : 9100");
 			System.exit(1);
 		}
 
 		clientSocket = null;
 
 		try {
-			// Å¬¶óÀÌ¾ğÆ®ÀÇ ¿¬°á¿äÃ»ÀÌ ¿À¸é Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ°ú Åë½ÅÇÒ »õ·Î¿î ¼ÒÄ¹À» »ı¼º.
+			
 			clientSocket = serverSocket.accept();
 		} catch (IOException e) {
-			System.out.println("accept() ½ÇÆĞ");
+			System.out.println("accept() ì‹¤íŒ¨");
 			System.exit(1);
 		}
-		// ¼­¹ö¿Í Å¬¶óÀÌ¾ğÆ®°£ ´ëÈ­¸¦ ÇÏ±âÀ§ÇØ out, in »ı¼º
-		// ¼ÒÄÏÀÇ Ãâ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
+		
+		
 		out = new PrintWriter(clientSocket.getOutputStream(), true);
 		in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		
-		// Å¬¶óÀÌ¾ğÆ® Á¢¼ÓÀÌ ¿Ï·áµÇ¸é outputLineÀ» Ãâ·ÂÇØÁØ´Ù.
-		outputLine = "Á÷¿ø : ¹ÎÇõÆÄÀÚ°¡°Ô ¿Â¶óÀÎÁÖ¹®ÀÔ´Ï´Ù. ¸Ş´º¹öÆ°¿¡¼­ ¸Ş´º¸¦ È®ÀÎÇÏ¼¼¿ä~ \n (ÅäÇÎÀº Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù)";
+		
+		outputLine = "ì§ì› : ë¯¼í˜íŒŒìê°€ê²Œ ì˜¨ë¼ì¸ì£¼ë¬¸ì…ë‹ˆë‹¤. ë©”ë‰´ë²„íŠ¼ì—ì„œ ë©”ë‰´ë¥¼ í™•ì¸í•˜ì„¸ìš”~ \n (í† í•‘ì€ ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤)";
 		out.println(outputLine);
 		
-		//Å¬¶óÀÌ¾ğÆ®°¡ Á¢¼ÓµÇ¾ú´Ù°í textArea¿¡ Ãâ·Â
-		textArea.append("¼­¹ö ¸Ş½ÃÁö : Å¬¶óÀÌ¾ğÆ®°¡ Á¢¼ÓµÇ¾ú½À´Ï´Ù.\n");
+		
+		textArea.append("ì„œë²„ ë©”ì‹œì§€ : í´ë¼ì´ì–¸íŠ¸ê°€ ì ‘ì†ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 
-		String fromClient;		//Å¬¶óÀÌ¾ğÆ®·Î º¸³»´Â ¹®ÀåÀ» ´ãÀ» ½ºÆ®¸µ º¯¼ö
+		String fromClient;		
 
-		while ((fromClient = in.readLine()) != null) {	//Å¬¶óÀÌ¾ğÆ®·Î º¸³»´Â ¹®ÀåÀÌ ÇÑÁÙÀ» ÀĞÀ¸¸é¼­ nullÀÌ ¾Æ´Ò¶§ ±îÁö ¹İº¹
-			String s = fromClient + "\n";				//º¯¼ö s¿¡ Å¬¶óÀÌ¾ğÆ®·Î º¸³¾ ¹®ÀåÀ» ´ãÀ½
-			System.out.println(s);						//È®ÀÎÀ» À§ÇÑ ÄÜ¼ÖÃ¢¿¡ ¶ç¿ò
-			textArea.append(s);							//textArea¿¡ Å¬¶óÀÌ¾ğÆ®·Î º¸³»´Â ¹®ÀåÀ» »ğÀÔ
+		while ((fromClient = in.readLine()) != null) {	
+			String s = fromClient + "\n";				
+			System.out.println(s);						
+			textArea.append(s);							
 		}
 	}
 
