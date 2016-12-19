@@ -27,59 +27,59 @@ public class Client extends JFrame implements ActionListener {
 	private JPanel panel, panel1, panel2;
 
 	public Client() {
-		setBounds(900, 200, 600, 650);						//ÇÁ·¹ÀÓÀÇ Å©±â ¹× À§Ä¡ ÁöÁ¤
-		setTitle("Consumer");								//ÇÁ·¹ÀÓÀÇ Á¦¸ñ ÁöÁ¤
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//´İ±â¹öÆ°À» ´­·¶À»¶§ Á¾·á
+		setBounds(900, 200, 600, 650);						
+		setTitle("Consumer");								
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		
-		textArea = new JTextArea(30, 42);					//textArea»ı¼º ¹× Å©±â ÁöÁ¤
-		textField = new JTextField(30);						//textField»ı¼º ¹× Å©±â ÁöÁ¤
-		textField.addActionListener(this);					//ÀÌº¥Æ®Ã³¸® µî·Ï
+		textArea = new JTextArea(30, 42);					
+		textField = new JTextField(30);						
+		textField.addActionListener(this);					
 		
-		//¹öÆ° µî·Ï ¹× ÀÌº¥Æ® Ã³¸® µî·Ï
-		input = new JButton("ÀÔ·Â");							
+		//ë²„íŠ¼ ë“±ë¡ ë° ì´ë²¤íŠ¸ ì²˜ë¦¬ ë“±ë¡
+		input = new JButton("ì…ë ¥");							
 		input.addActionListener(this);				
-		menu = new JButton("¸Ş´º");							
+		menu = new JButton("ë©”ë‰´");							
 		menu.addActionListener(this);
 		
-		//ÆĞ³Î µî·Ï
+		//íŒ¨ë„ ë“±ë¡
 		panel = new JPanel();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 		
-		panel1.add(new JScrollPane(textArea));			//panel1¿¡ JScrollPaneÀ» textArea¿¡ µî·Ï
-		panel2.add(textField);							//panel2¿¡ textFieldµî·Ï
-		panel2.add(input);								//panel2¿¡ ¹öÆ°µî·Ï
+		panel1.add(new JScrollPane(textArea));			
+		panel2.add(textField);							
+		panel2.add(input);								
 		panel2.add(menu);
-		add(panel);										//ÇÁ·¹ÀÓ¿¡ ÆĞ³Îµî·Ï
+		add(panel);										
 			
-		panel = new JPanel(new GridLayout(1, 1));		//GridLayoutÀ¸·Î ÆĞ³ÎÀ» »ı¼º
+		panel = new JPanel(new GridLayout(1, 1));		
 		
-		panel.add(panel1);								//¸¸µé¾îÁø ÆĞ³Î¿¡ panel1, panel2¸¦ µî·Ï
+		panel.add(panel1);								
 		panel.add(panel2);
-		setLayout(new BorderLayout());					//setLayoutÀ¸·Î ¹èÄ¡¸¦ BorderLayoutÀ¸·Î °áÁ¤
+		setLayout(new BorderLayout());					
 		
-		add(panel1, BorderLayout.NORTH);				//BorderLayoutÀ¸·Î °¢ ÆĞ³ÎÀÇ À§Ä¡¸¦ Àâ¾ÆÁÜ
+		add(panel1, BorderLayout.NORTH);				
 		add(panel2, BorderLayout.SOUTH);
 		
-		setResizable(false);							//ÇÁ·¹ÀÓ ÃÖ´ëÈ­,ÃÖ¼ÒÈ­ false
-		setVisible(true);								//ÇÁ·¹ÀÓÀ» ¶ç¾îÁÜ
+		setResizable(false);							
+		setVisible(true);								
 
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {		//¹öÆ°À» ´­·¶À»¶§ ¹ß»ıÇÏ´Â ÀÌº¥Æ®Ã³¸®
+	public void actionPerformed(ActionEvent e) {		
 		
-		String s = "Å¬¶óÀÌ¾ğÆ® : " + textField.getText();
-		textArea.append(s + "\n");						//º¯¼ö s¿¡ ´ã±ä ³»¿ëÀ» textArea¿¡ Ãâ·Â
-		out.println(s);									//Å¬¶óÀÌ¾ğÆ®¿¡°Ôµµ º¸³»ÁÜ
-		textField.setText("");							//Ãâ·ÂÀÌ ³¡ÀÌ³µÀ¸¸é ÃÊ±âÈ­
+		String s = "í´ë¼ì´ì–¸íŠ¸ : " + textField.getText();
+		textArea.append(s + "\n");						
+		out.println(s);									
+		textField.setText("");							
 		
-		if(e.getSource() == menu){						//¸¸¾à ÁÖ¹®¹öÆ°À» ´©¸£¸é
-			String ss = "¸Ş´ºÈ®ÀÎÁßÀÔ´Ï´Ù.";					//¸Ş½ÃÁö¸¦ ´ãÀ» º¯¼ö ss
-			textArea.append(ss + "\n");					//ss¿¡ ´ã±ä ¸Ş½ÃÁö°¡ textArea¿¡ Ãâ·Â
-			out.println(ss);							//Å¬¶óÀÌ¾ğÆ®·Î º¸³»ÁÖ±â À§ÇØ 
+		if(e.getSource() == menu){						
+			String ss = "ë©”ë‰´í™•ì¸ì¤‘ì…ë‹ˆë‹¤.";					
+			textArea.append(ss + "\n");					
+			out.println(ss);							
 			
-			Menu menu = new Menu();						//ÁÖ¹®À» ÇÒ ¼ö ÀÖµµ·Ï Menu ÇÁ·¹ÀÓÀ» ¶ç¾îÁÜ
+			Menu menu = new Menu();						
 		}
 	}
 
@@ -87,34 +87,32 @@ public class Client extends JFrame implements ActionListener {
 		Socket socket = null;
 
 		try {
-			// ¼ÒÄÏÀ» »ı¼ºÇÏ¿© ¿¬°áÀ» ¿äÃ»ÇÑ´Ù.
+			
 			socket = new Socket("localhost", 9100);
 
 		} catch (UnknownHostException e) {
-			System.out.println("localhost¿¡ Á¢±ÙÇÒ ¼ö ¾ø½À´Ï´Ù.");
+			System.out.println("localhostì— ì ‘ê·¼í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			System.exit(1);
 
 		} catch (IOException e) {
-			System.out.println("ÀÔÃâ·Â ¿À·ù!");
+			System.out.println("ì…ì¶œë ¥ ì˜¤ë¥˜!");
 			System.exit(1);
 		}
 		
-		// ¼­¹ö¿Í Å¬¶óÀÌ¾ğÆ®°£ ´ëÈ­¸¦ ÇÏ±âÀ§ÇØ out, in »ı¼º
-		// ¼ÒÄÏÀÇ ÀÔ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
 		out = new PrintWriter(socket.getOutputStream(), true);
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));	
 
-		String fromServer;			//¼­¹ö·Î º¸³»´Â ¹®ÀåÀ» ´ãÀ» ½ºÆ®¸µ º¯¼ö
+		String fromServer;			
 
-		while ((fromServer = in.readLine()) != null) {	//¼­¹ö·Î º¸³»´Â ¹®ÀåÀÌ ÇÑÁÙÀ» ÀĞÀ¸¸é¼­ nullÀÌ ¾Æ´Ò¶§ ±îÁö ¹İº¹
-			String s = fromServer + "\n";				//º¯¼ö s¿¡ ¼­¹ö·Î º¸³¾ ¹®ÀåÀ» ´ãÀ½
-			System.out.println(s);						//È®ÀÎÀ» À§ÇÑ ÄÜ¼ÖÃ¢¿¡ ¶ç¿ò
-			textArea.append(s);							//textArea¿¡ ¼­¹ö·Î º¸³»´Â ¹®ÀåÀ» »ğÀÔ
+		while ((fromServer = in.readLine()) != null) {	
+			String s = fromServer + "\n";				
+			System.out.println(s);						
+			textArea.append(s);							
 		}
 
-		out.close();			//PrintWriter ´İ±â
-		in.close();				//BufferReader ´İ±â
-		socket.close();			//socket ´İ±â
+		out.close();			
+		in.close();				
+		socket.close();			
 	}
 
 	public static void main(String[] args) throws IOException {
