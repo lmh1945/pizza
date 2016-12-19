@@ -23,10 +23,10 @@ class Pizza extends JFrame implements ActionListener {
 	LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
 	ArrayList<String> list = new ArrayList<String>();
 
-	private int sum = 0;	//°¢°ÜÀÇ ÇÕ°è¸¦ ÀúÀåÇÏ±âÀ§ÇÑ º¯¼ö
-	private int temp1 = 0;	//ÇÇÀÚÀÇ °¡°İÀ» ÀúÀåÇÏ±âÀ§ÇÑ º¯¼ö
-	private int temp2 = 0;	//ÅäÇÎÀÇ °¡°İÀ» ÀúÀåÇÏ±âÀ§ÇÑ º¯¼ö
-	private int temp3 = 0;	//»çÀÌÁîÀÇ °¡°İÀ» ÀúÀåÇÏ±âÀ§ÇÑ º¯¼ö
+	private int sum = 0;	
+	private int temp1 = 0;	
+	private int temp2 = 0;	
+	private int temp3 = 0;	
 	private JButton orderButton, cancleButton, resetButton;
 	private JPanel downPanel;
 	private JTextField text;
@@ -39,99 +39,95 @@ class Pizza extends JFrame implements ActionListener {
 	Server server;
 	
 	public Pizza() {
-		setSize(700, 400);	//ÇÁ·¹ÀÓ Å©±â ÁöÁ¤
-		setTitle("ÇÇÀÚ ÁÖ¹®");	//ÇÁ·¹ÀÓ Á¦¸ñ ÁöÁ¤
+		setSize(700, 400);	
+		setTitle("í”¼ì ì£¼ë¬¸");	
 		
-		//ÇÁ·¹ÀÓ ÇÏ´Ü ¹öÆ°3°³ Ãß°¡.
-		orderButton = new JButton("ÁÖ¹®");
+		
+		orderButton = new JButton("ì£¼ë¬¸");
 		orderButton.addActionListener(this);
-		cancleButton = new JButton("Ãë¼Ò");
+		cancleButton = new JButton("ì·¨ì†Œ");
 		cancleButton.addActionListener(this);
-		resetButton = new JButton("¸®¼Â");
+		resetButton = new JButton("ë¦¬ì…‹");
 		resetButton.addActionListener(this);
 		
-		//ÇÁ·¹ÀÓ ÇÏ´Ü ¹öÆ° ¿ìÃø¿¡ °¡°İÀ» ³ªÅ¸³»´Â ÅØ½ºÆ®ÇÊµå »ı¼º
-		text = new JTextField();
-		text.setEditable(true); // true/false ·Î Åõ¸í/¹İÅõ¸í °áÁ¤
-		text.setColumns(7); // ÅØ½ºÆ®¿¡ µé¾î°¥ ¼ö ÀÖ´Â ÃÖ´ë Å©±â
 		
-		//ÆĞ³Î p1,p2 2°³ »ı¼º
+		text = new JTextField();
+		text.setEditable(true);
+		text.setColumns(7);
+		
+		
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
-		p1.add(new JLabel("¼±ÅÃÀÌ ¿Ï·áµÇ¾úÀ¸¸é ¾Æ·¡ ÁÖ¹® ¹öÆ°À» ´­·¯ÁÖ½Ê½Ã¿À, ¸®¼ÂÀ» ´©¸£¸é ÃÊ±âÈ­ µË´Ï´Ù."));
-		p2.add(orderButton);	//ÆĞ³Î p2¿¡ orderButton Ãß°¡
-		p2.add(resetButton);	//ÆĞ³Î p2¿¡ resetButton Ãß°¡
-		p2.add(cancleButton);	//ÆĞ³Î p2¿¡ calcleButton Ãß°¡
-		p2.add(text);			//ÆĞ³Î p2¿¡ text Ãß°¡
+		p1.add(new JLabel("ì„ íƒì´ ì™„ë£Œë˜ì—ˆìœ¼ë©´ ì•„ë˜ ì£¼ë¬¸ ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì‹­ì‹œì˜¤, ë¦¬ì…‹ì„ ëˆ„ë¥´ë©´ ì´ˆê¸°í™” ë©ë‹ˆë‹¤."));
+		p2.add(orderButton);	
+		p2.add(resetButton);	
+		p2.add(cancleButton);	
+		p2.add(text);			
 
-		downPanel = new JPanel(new GridLayout(2, 0));	//downPanelÀÌ¶ó´Â ÆĞ³ÎÀ» »ı¼ºÇÏ¿© GridLayoutÀ¸·Î À§Ä¡ ÁöÁ¤
-		downPanel.add(p1);		// downPanel¿¡ p1 Ãß°¡
-		downPanel.add(p2);		// downPanel¿¡ p2 Ãß°¡
-		setLayout(new BorderLayout());		//setLayoutÀ¸·Î ¹èÄ¡¹æ¹ıÀ» BorderLayout¸¦ »ç¿ë.
+		downPanel = new JPanel(new GridLayout(2, 0));	
+		downPanel.add(p1);		
+		downPanel.add(p2);		
+		setLayout(new BorderLayout());		
 		
-		//Ãß°¡ÇÑ BorderLayout¸Ş¼Òµå·Î °¢ À§Ä¡¸¦ Àâ¾ÆÁÜ ±×°ÍÀ» ÇÁ·¹ÀÓ¿¡ Áı¾î³ÖÀ½
+		
 		add(welcomePanel, BorderLayout.NORTH);
 		add(sizePanel, BorderLayout.EAST);
 		add(pizzaPanel, BorderLayout.WEST);
 		add(toppingPanel, BorderLayout.CENTER);
 		add(downPanel, BorderLayout.SOUTH);
 		
-		setLocationRelativeTo(null); // Ã¢ °¡¿îµ¥ ¶ß°Ô ÇÔ
-		setResizable(false); // Ã¢ Å©±â Á¶Àı ºÒ°¡´É
-		setVisible(true);	//»ı¼ºµÈ ÇÁ·¹ÀÓÀ» º¸¿©ÁÜ
+		setLocationRelativeTo(null); 
+		setResizable(false); 
+		setVisible(true);	
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == this.orderButton) {	//ÁÖ¹® ¹öÆ°À» ´©¸£¸é
-			temp1 += pizzaPanel.getPizzaPrice();	//ÁÖ¹®ÇÑ ÇÇÀÚÀÇ °¡°İÀÌ temp1¿¡ ÀúÀå
-			temp2 = toppingPanel.getToppingPrice();	//ÁÖ¹®ÇÑ ÅäÇÎÀÇ °¡°İÀÌ temp2¿¡ ÀúÀå
-			temp3 = sizePanel.getSizePrice();		//ÁÖ¹®ÇÑ »çÀÌÁîÀÇ °¡°İÀÌ temp3¿¡ ÀúÀå
-			sum = temp1 + temp2 + temp3;			//sumÀÌ¶ó´Â º¯¼ö¿¡ °¢ temp(1,2,3)À» ´õÇØ¼­ °ªÀ» ÀúÀå
+		if (e.getSource() == this.orderButton) {	
+			temp1 += pizzaPanel.getPizzaPrice();	
+			temp2 = toppingPanel.getToppingPrice();	
+			temp3 = sizePanel.getSizePrice();		
+			sum = temp1 + temp2 + temp3;			
 
-			this.text.setText(" " + sum + "¿ø");		//ÅØ½ºÆ®ÇÊµå¿¡ ÀúÀåµÈ °¢ °¡°İÀÇ ÇÔÀ» Ãâ·Â
+			this.text.setText(" " + sum + "ì›");		
 
-			map.put(pizzaPanel.getPizzaName(), pizzaPanel.getPizzaPrice());			//LinkedHashMap Ã¹¹øÂ° ÀÎµ¦½º¿¡ ÇÇÀÚÀÇ ÀÌ¸§°ú °¡°İÀ» ÀúÀå
-			map.put(toppingPanel.getToppingName(), toppingPanel.getToppingPrice());	//LinkedHashMap µÎ¹øÂ° ÀÎµ¦½º¿¡ ÅäÇÎÀÇ ÀÌ¸§°ú °¡°İÀ» ÀúÀå
-			map.put(sizePanel.getSizeName(), sizePanel.getSizePrice());				//LinkedHashMap ¼¼¹øÂ° ÀÎµ¦½º¿¡ »çÀÌÁîÀÇ ÀÌ¸§°ú °¡°İÀ» ÀúÀå
+			map.put(pizzaPanel.getPizzaName(), pizzaPanel.getPizzaPrice());			
+			map.put(toppingPanel.getToppingName(), toppingPanel.getToppingPrice());	
+			map.put(sizePanel.getSizeName(), sizePanel.getSizePrice());				
 			
-			//HashMap¿¡ µé¾îÀÖ´Â Key, Value°ªÀ» ºĞ¸®ÇØ¼­ È£ÃâÇÏ±â À§ÇÑ °úÁ¤
-			Set<Entry<String, Integer>> set = map.entrySet();				//HashMap¿¡ ÀÖ´Â ¸ğµç Key, Value¸¦ Set¿¡ ´ã°í,		
-			Iterator<Entry<String, Integer>> it = set.iterator();			//Iterator¿¡ °ªÀ» Set Á¤º¸¸¦ ´ã¾ÆÁÜ
+			Set<Entry<String, Integer>> set = map.entrySet();				
+			Iterator<Entry<String, Integer>> it = set.iterator();			
 
-			int count = 1;	//¼±ÅÃÀÇ ¼ø¹øÀ» ¸Å°ÜÁÖ±â À§ÇØ count¸¦ 1·Î ÃÊ±âÈ­
+			int count = 1;	
 
-			while (it.hasNext()) {		//HashMap¿¡ Æ÷ÇÔµÈ Key, Value °ªÀ» È£Ãâ
+			while (it.hasNext()) {		
 				Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) it.next();
-				list.add(count + "¼±ÅÃ : " + entry.getKey() + " °¡°İ : " + entry.getValue() + "¿ø ");
-				count++;	//¼ø¹ø ÇÏ³ª¾¿ Áõ°¡
-			}
+				list.add(count + "ì„ íƒ : " + entry.getKey() + " ê°€ê²© : " + entry.getValue() + "ì› ");
+				count++;	
 			
-			//JOptionPane¸Ş¼Òµå·Î ArrayList¿¡ ´ã¾ÆÁØ °¢°¢ÀÇ ÀÌ¸§°ú °¡°İ, ÇÕ°è°¡°İÀ» ºôÁî·Î Ãâ·Â
-			JOptionPane.showMessageDialog(null, list.toString() + "\n ÃÑ ÁÖ¹®¾×Àº : " + sum + "¿ø ÀÔ´Ï´Ù.", "ÁÖ¹®È®ÀÎ¼­",
+
+			JOptionPane.showMessageDialog(null, list.toString() + "\n ì´ ì£¼ë¬¸ì•¡ì€ : " + sum + "ì› ì…ë‹ˆë‹¤.", "ì£¼ë¬¸í™•ì¸ì„œ",
 					JOptionPane.INFORMATION_MESSAGE, new ImageIcon("bills.png"));
 			
-			//MaintainBills¶ó´Â Å¬·¡½º·Î Singleton PatternÀ» »ç¿ëÇÏ¿© ºôÁî¿¡ µé¾îÀÖ´Â °ªµéÀ» À¯ÁöÇÏ±â À§ÇØ »ç¿ë
-			MaintainBills bills = MaintainBills.getInstance();	//½Ì±ÛÅæÆĞÅÏ¿¡¼­´Â new·Î »ı¼ºÀÚ¸¦ »ı¼ºÇÏ´Â °ÍÀÌ ¾Æ´Ï°í ÀÌ¿Í °°ÀÌ »ı¼ºÇÑ´Ù.
 			
-			bills.getServer().textArea.append(list.toString() + "\n ÃÑ ÁÖ¹®¾×Àº : " + sum + "¿ø ÀÔ´Ï´Ù.\n");		//ºôÁîÀÇ ³»¿ëÀ» Server°¡ ´ã°ÜÀÖ´Â bills.getServer·Î textArea¿¡ ³ÖÀ½
-			bills.getServer().out.println((list.toString() + "\n ÃÑ ÁÖ¹®¾×Àº : " + sum + "¿ø ÀÔ´Ï´Ù."));			//ºôÁîÀÇ ³»¿ëÀ» Server¿¡¼­ Client·Î º¸³¿
+			MaintainBills bills = MaintainBills.getInstance();	
+			
+			bills.getServer().textArea.append(list.toString() + "\n ì´ ì£¼ë¬¸ì•¡ì€ : " + sum + "ì› ì…ë‹ˆë‹¤.\n");		
+			bills.getServer().out.println((list.toString() + "\n ì´ ì£¼ë¬¸ì•¡ì€ : " + sum + "ì› ì…ë‹ˆë‹¤."));			
 		}
 		
-		if (e.getSource() == this.resetButton) {		//¸¸¾à ¸®¼Â¹öÆ°À» ´©¸£¸é
-			sum = 0;									//ÇÕ±İ¾×Àº 0ÀÌ µÇ°í
-			this.text.setText(" " + sum + "¿ø");			//ÇÕÀÌ 0¿øÀÌ¶ó°í ÅØ½ºÆ®ÇÊµå¿¡ Ãâ·Â
-			
-			//JOptionPane¸Ş¼Òµå·Î ArrayList¿¡ ´ã¾ÆÁØ °¢°¢ÀÇ ÀÌ¸§°ú °¡°İ, ÇÕ°è°¡°İÀ» ºôÁî·Î Ãâ·Â
-			JOptionPane.showMessageDialog(null, list.toString() + "\n ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù. \nÃÑ ÁÖ¹®¾×Àº : " + sum + "¿ø ÀÔ´Ï´Ù.", "ÁÖ¹®È®ÀÎ¼­",
+		if (e.getSource() == this.resetButton) {		
+			sum = 0;									
+			this.text.setText(" " + sum + "ì›");			
+			JOptionPane.showMessageDialog(null, list.toString() + "\n ì´ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤. \nì´ ì£¼ë¬¸ì•¡ì€ : " + sum + "ì› ì…ë‹ˆë‹¤.", "ì£¼ë¬¸í™•ì¸ì„œ",
 					JOptionPane.INFORMATION_MESSAGE, new ImageIcon("bills.png"));
 
-			dispose();	//¸®¼ÂÀ» ´©¸£¸é ÇÁ·¹ÀÓÀ» ÇÑ¹ø ²¨ÁÖ°í
-			new Pizza();	//´Ù½Ã ÇÁ·¹ÀÓÃ¢À» ¿­¾îÁØ´Ù
+			dispose();	
+			new Pizza();	
 		}
 
-		if (e.getSource() == this.cancleButton) {	//¸¸¾à Ãë¼Ò ¹öÆ°À» ´©¸£¸é
-			dispose();	//Ãë¼Ò¸¦ ´©¸£¸é ÇÁ·¹ÀÓÀ» ²¨ÁØ´Ù
+		if (e.getSource() == this.cancleButton) {	
+			dispose();	
 		}
 	}
 }
