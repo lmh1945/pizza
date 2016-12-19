@@ -16,10 +16,9 @@ class SizePanel extends JPanel implements ActionListener{
 	private ButtonGroup bg;
 	
 	public SizePanel() {
-		//setLayoutÀ¸·Î ¹èÄ¡¹æ¹ıÀ» GridLayoutÀ¸·Î °áÁ¤
+		
 		setLayout(new GridLayout(3, 0));
 		
-		//JRadioButtonÀ» »ç¿ëÇØ¼­ °¢°¢ ¹öÆ°À» ³Ö¾îÁÜ
 		small = new JRadioButton("Small");
 		small.addActionListener(this);
 		medium = new JRadioButton("Medium");
@@ -27,22 +26,20 @@ class SizePanel extends JPanel implements ActionListener{
 		large = new JRadioButton("Large");
 		large.addActionListener(this);
 		
-		 //°¢ ¶óµğ¿À¹öÆ°À» ±×·ìÀ¸·Î ¹­¾îÁÜ
+		
 		bg = new ButtonGroup();
 		bg.add(small);
 		bg.add(medium);
 		bg.add(large);
 		
-		//ÆĞ³Î¿¡ setBorder·Î Á¤·ÁµÈ ¶óÀÎÀ» ¸¸µé¾îÁÜ
-		setBorder(BorderFactory.createTitledBorder("3. Å©±â"));
+		setBorder(BorderFactory.createTitledBorder("3. í¬ê¸°"));
 		
-		//ÆĞ³Î¿¡ ÇÇÀÚÀÇ Á¾·ù¹öÆ°À» ³Ö¾îÁÜ
 		add(small);
 		add(medium);
 		add(large);
 	}
 
-	public void actionPerformed(ActionEvent e) {		//°¢°¢ÀÇ ¹öÆ°À» ¼±ÅÃÇÒ ½Ã ÇÇÀÚÀÌ¸§°ú °¡°İÀ» ÃÊ±âÈ­
+	public void actionPerformed(ActionEvent e) {		
 
 		if (e.getSource() == this.small) {
 			setSizeName("Small");
