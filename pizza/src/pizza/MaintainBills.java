@@ -1,14 +1,17 @@
 package pizza;
 
-public class MaintainBills { // singleton pattern = ÇÏ³ªÀÇ Å¬·¡½ºÀÇ ´Ü ÇÏ³ªÀÇ ÀÎ½ºÅÏ½º¸¸À» »ı¼ºÇÏ´Â °Í
-	private static MaintainBills instance;	//À¯ÀÏÇÑ ÀÎ½ºÅÏ½º ÀúÀå °´Ã¼ ¼±¾ğ
+public class MaintainBills { // singleton pattern = í•˜ë‚˜ì˜ í´ë˜ìŠ¤ì˜ ë‹¨ í•˜ë‚˜ì˜ ì¸ìŠ¤í„´ìŠ¤ë§Œì„ ìƒì„±í•˜ëŠ” ê²ƒ
+	private static MaintainBills instance;	//ìœ ì¼í•œ ì¸ìŠ¤í„´ìŠ¤ ì €ì¥ ê°ì²´ ì„ ì–¸
 	private Server server;
 	
-	public static synchronized MaintainBills getInstance() { // ¹æÇØ¹ŞÁö¸»°í ³¡³¯¶§±îÁö.. ¿ÜºÎ¿¡¼­ »ç¿ëÇÒ ÇÔ¼ö ¼±¾ğ, Å¬·¡½º¸¦ »ı¼ºÇÒ¶§ ¾´´Ù
-		if (instance == null) {								// ÀÖ´ÂÁö Ã¼Å©, ¾ø´Ù¸é
-			instance = new MaintainBills();					// »ı¼ºÇÑ ÈÄ,
+	public static synchronized MaintainBills getInstance() { // ë°©í•´ë°›ì§€ë§ê³  ëë‚ ë•Œê¹Œì§€.. ì™¸ë¶€ì—ì„œ ì‚¬ìš©í•  í•¨ìˆ˜ ì„ ì–¸, í´ë˜ìŠ¤ë¥¼ ìƒì„±í• ë•Œ ì“´ë‹¤
+		if (instance == null) {								// ìˆëŠ”ì§€ ì²´í¬, ì—†ë‹¤ë©´
+			instance = new MaintainBills();					// ìƒì„±í•œ í›„,
 		}
-		return instance;									// »ı¼ºÀÚ¸¦ ³Ñ°ÜÁØ´Ù.
+		return instance;									// ìƒì„±ìë¥¼ ë„˜ê²¨ì¤€ë‹¤.
+	}
+	
+	private MaintainBills(){
 	}
 
 	public Server getServer() {
