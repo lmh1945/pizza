@@ -16,35 +16,32 @@ class ToppingPanel extends JPanel implements ActionListener {
 	private JCheckBox cheese, peperoni, bacon, olive, onion, pepper, mushroom, cuttlefish, shrimp, shellfish;
 
 	public ToppingPanel() {
-		//setLayoutÀ¸·Î ¹èÄ¡¹æ¹ıÀ» GridLayoutÀ¸·Î °áÁ¤
+		
 		setLayout(new GridLayout(2, 2));
 		
-		//JCheckBox¸¦ »ç¿ëÇØ¼­ °¢°¢ ¹öÆ°À» ³Ö¾îÁÜ
-		cheese = new JCheckBox("Ä¡Áî");
+		cheese = new JCheckBox("ì¹˜ì¦ˆ");
 		cheese.addActionListener(this);
-		peperoni = new JCheckBox("ÆäÆÛ·Î´Ï");
+		peperoni = new JCheckBox("í˜í¼ë¡œë‹ˆ");
 		peperoni.addActionListener(this);
-		bacon = new JCheckBox("º£ÀÌÄÁ");
+		bacon = new JCheckBox("ë² ì´ì»¨");
 		bacon.addActionListener(this);
-		olive = new JCheckBox("¿Ã¸®ºê");
+		olive = new JCheckBox("ì˜¬ë¦¬ë¸Œ");
 		olive.addActionListener(this);
-		onion = new JCheckBox("¾çÆÄ");
+		onion = new JCheckBox("ì–‘íŒŒ");
 		onion.addActionListener(this);
-		pepper = new JCheckBox("ÇÇ¸Á");
+		pepper = new JCheckBox("í”¼ë§");
 		pepper.addActionListener(this);
-		mushroom = new JCheckBox("¾ç¼ÛÀÌ");
+		mushroom = new JCheckBox("ì–‘ì†¡ì´");
 		mushroom.addActionListener(this);
-		cuttlefish = new JCheckBox("¿ÀÂ¡¾î");
+		cuttlefish = new JCheckBox("ì˜¤ì§•ì–´");
 		cuttlefish.addActionListener(this);
-		shrimp = new JCheckBox("»õ¿ì");
+		shrimp = new JCheckBox("ìƒˆìš°");
 		shrimp.addActionListener(this);
-		shellfish = new JCheckBox("Á¶°³");
+		shellfish = new JCheckBox("ì¡°ê°œ");
 		shellfish.addActionListener(this);
 		
-		//ÆĞ³Î¿¡ setBorder·Î Á¤·ÁµÈ ¶óÀÎÀ» ¸¸µé¾îÁÜ
-		setBorder(BorderFactory.createTitledBorder("2. Ãß°¡ÅäÇÎ <ÅäÇÎÀº Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù.> "));
+		setBorder(BorderFactory.createTitledBorder("2. ì¶”ê°€í† í•‘ <í† í•‘ì€ ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.> "));
 		
-		//ÆĞ³Î¿¡ ÇÇÀÚÀÇ Á¾·ù¹öÆ°À» ³Ö¾îÁÜ
 		add(cheese);
 		add(peperoni);
 		add(bacon);
@@ -59,74 +56,74 @@ class ToppingPanel extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == this.cheese) {			////°¢°¢ÀÇ ¹öÆ°À» ¼±ÅÃÇÒ ½Ã ÅäÇÎÀÌ¸§°ú °¡°İÀ» ÃÊ±âÈ­, Áßº¹À» Çã¿ëÇÏ±â À§ÇØ °¡°İ¿Í ÀÌ¸§À» °è¼Ó Ãß°¡ÇØÁÜ
-			setToppingName("Ä¡Áî");
+		if (e.getSource() == this.cheese) {			
+			setToppingName("ì¹˜ì¦ˆ");
 			setToppingPrice(1500);
 			price += 1500;
-			topping += "Ä¡Áî,";
+			topping += "ì¹˜ì¦ˆ,";
 		}
 		
 		else if (e.getSource() == this.peperoni) {
-			setToppingName("ÆäÆÛ·Î´Ï");
+			setToppingName("í˜í¼ë¡œë‹ˆ");
 			setToppingPrice(2300);
 			price += 2300;
-			topping += "ÆäÆÛ·Î´Ï,";
+			topping += "í˜í¼ë¡œë‹ˆ,";
 		}
 		
 		else if (e.getSource() == this.bacon) {
-			setToppingName("º£ÀÌÄÁ");
+			setToppingName("ë² ì´ì»¨");
 			setToppingPrice(1400);
 			price += 1400;
-			topping += "º£ÀÌÄÁ,";
+			topping += "ë² ì´ì»¨,";
 		}
 		
 		else if (e.getSource() == this.olive) {
-			setToppingName("¿Ã¸®ºê");
+			setToppingName("ì˜¬ë¦¬ë¸Œ");
 			setToppingPrice(1600);
 			price += 1600;
-			topping += "¿Ã¸®ºê,";
+			topping += "ì˜¬ë¦¬ë¸Œ,";
 		}
 		
 		else if (e.getSource() == this.onion) {
-			setToppingName("¾çÆÄ");
+			setToppingName("ì–‘íŒŒ");
 			setToppingPrice(600);
 			price += 600;
-			topping += "¾çÆÄ,";
+			topping += "ì–‘íŒŒ,";
 		}
 		
 		else if (e.getSource() == this.pepper) {
-			setToppingName("ÇÇ¸Á");
+			setToppingName("í”¼ë§");
 			setToppingPrice(900);
 			price += 900;
-			topping += "ÇÇ¸Á,";
+			topping += "í”¼ë§,";
 		}
 		
 		else if (e.getSource() == this.mushroom) {
-			setToppingName("¾ç¼ÛÀÌ");
+			setToppingName("ì–‘ì†¡ì´");
 			setToppingPrice(1200);
 			price += 1200;
-			topping += "¾ç¼ÛÀÌ,";
+			topping += "ì–‘ì†¡ì´,";
 		}
 		
 		else if (e.getSource() == this.cuttlefish) {
-			setToppingName("¿ÀÂ¡¾î");
+			setToppingName("ì˜¤ì§•ì–´");
 			setToppingPrice(1600);
 			price += 1600;
-			topping += "¿ÀÂ¡¾î,";
+			topping += "ì˜¤ì§•ì–´,";
 		}
 		
 		else if (e.getSource() == this.shrimp) {
-			setToppingName("»õ¿ì");
+			setToppingName("ìƒˆìš°");
 			setToppingPrice(1800);
 			price += 1800;
-			topping += "»õ¿ì,";
+			topping += "ìƒˆìš°,";
 		}
 		
 		else if (e.getSource() == this.shellfish) {
-			setToppingName("Á¶°³");
+			setToppingName("ì¡°ê°œ");
 			setToppingPrice(1300);
 			price += 1300;
-			topping += "Á¶°³,";
+			topping += "ì¡°ê°œ,";
 		}
 
 	}
