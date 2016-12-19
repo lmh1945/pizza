@@ -16,30 +16,26 @@ class PizzaPanel extends JPanel implements ActionListener {
    private ButtonGroup bg;
    
    public PizzaPanel() {
-	  //setLayoutÀ¸·Î ¹èÄ¡¹æ¹ıÀ» GridLayoutÀ¸·Î °áÁ¤
+	 
       setLayout(new GridLayout(4, 1));
-      
-      //JRadioButtonÀ» »ç¿ëÇØ¼­ °¢°¢ ¹öÆ°À» ³Ö¾îÁÜ
-      combo = new JRadioButton("ÄŞº¸");
+
+      combo = new JRadioButton("ì½¤ë³´");
       combo.addActionListener(this);
-      potato = new JRadioButton("Æ÷Å×ÀÌÅä");
+      potato = new JRadioButton("í¬í…Œì´í† ");
       potato.addActionListener(this);
-      bulgogi = new JRadioButton("ºÒ°í±â");
+      bulgogi = new JRadioButton("ë¶ˆê³ ê¸°");
       bulgogi.addActionListener(this);
-      chick = new JRadioButton("´ß°¥ºñ");
+      chick = new JRadioButton("ë‹­ê°ˆë¹„");
       chick.addActionListener(this);
       
-      //°¢ ¶óµğ¿À¹öÆ°À» ±×·ìÀ¸·Î ¹­¾îÁÜ
       bg = new ButtonGroup();
       bg.add(combo);
       bg.add(potato);
       bg.add(bulgogi);
       bg.add(chick);
       
-      //ÆĞ³Î¿¡ setBorder·Î Á¤·ÁµÈ ¶óÀÎÀ» ¸¸µé¾îÁÜ
-      setBorder(BorderFactory.createTitledBorder("1. ÇÇÀÚ"));
+      setBorder(BorderFactory.createTitledBorder("1. í”¼ì"));
       
-      //ÆĞ³Î¿¡ ÇÇÀÚÀÇ Á¾·ù¹öÆ°À» ³Ö¾îÁÜ
       add(combo);
       add(potato);
       add(bulgogi);
@@ -47,24 +43,24 @@ class PizzaPanel extends JPanel implements ActionListener {
       
    }
 
-   public void actionPerformed(ActionEvent e) {		//°¢°¢ÀÇ ¹öÆ°À» ¼±ÅÃÇÒ ½Ã ÇÇÀÚÀÌ¸§°ú °¡°İÀ» ÃÊ±âÈ­
+   public void actionPerformed(ActionEvent e) {		
       if (e.getSource() == combo) { 
-         setPizzaName("ÄŞº¸");
+         setPizzaName("ì½¤ë³´");
          setPizzaPrice(15000);
       }
       
       else if (e.getSource() == potato) {
-         setPizzaName("Æ÷Å×ÀÌÅä");
+         setPizzaName("í¬í…Œì´í† ");
          setPizzaPrice(14000);
       }
       
       else if (e.getSource() == bulgogi) {
-         setPizzaName("ºÒ°í±â");
+         setPizzaName("ë¶ˆê³ ê¸°");
          setPizzaPrice(16000);
       }
       
       else if (e.getSource() == chick) {
-         setPizzaName("´ß°¥ºñ");
+         setPizzaName("ë‹­ê°ˆë¹„");
          setPizzaPrice(15000);
       }
       
